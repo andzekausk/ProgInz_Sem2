@@ -1,5 +1,5 @@
 package lv.venta.model;
 
-public class Degree {
-
+public enum Degree {
+ mg, phd
 }
