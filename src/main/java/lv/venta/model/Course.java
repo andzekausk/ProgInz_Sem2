@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -38,9 +40,18 @@ public class Course {
 	private String title;
 	
 	@Column(name="Creditpoints")
-	@Min(1)
+	@Min(0)
 	@Max(20)
 	private int creditpoints;
 	
+	@OneToOne
+	@JoinColumn(name="Idp") //Professor klases kolonnas nosaukums
+	private Professor professor;
+	
 	//TODO uztaisit konstruktoru pec saites pievienosanu ar profesoru
+	public Course(String title, int creditpoints, Professor professor) {
+		setTitle(title);
+		setCreditpoints(creditpoints);
+		setProfessor(professor);
+	}
 }

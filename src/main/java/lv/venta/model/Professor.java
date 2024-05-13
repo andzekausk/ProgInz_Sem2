@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -43,6 +44,12 @@ public class Professor {
 	@Column(name="Degree")
 	@NotNull
 	private String degree;
+	
+	@OneToOne(mappedBy = "professor") //Course klases mainiigaa nosaukums
+	@ToString.Exclude
+	private Course course;
+	
+	
 	
 	public Professor(String name, String surname, String degree) {
 		setName(name);
