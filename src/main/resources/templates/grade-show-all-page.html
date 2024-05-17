@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	
+<body>
+	<p th:text="${msg}"></p>
+	<table border="1">
+		<tr>
+			<td>Id</td>
+			<td>Value</td>
+			<td>Title</td>
+			<td>Name</td>
+			<td>Surname</td>
+		</tr>
+		<tr th:each="tempG : ${mydata}">
+			<td th:text="${tempG.getIdg()}" ></td>
+			<td th:text="${tempG.getGrvalue()}">   </td>
+			<td th:text="${tempG.getCourse().getTitle()}">   </td>
+			<td th:text="${tempG.getStudent().getName()}">   </td>
+			<td th:text="${tempG.getStudent().getSurname()}">   </td>
+		</tr>
+		
+	</table>
+</body>
+
+
+</html>
