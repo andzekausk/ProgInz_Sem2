@@ -3,7 +3,7 @@ package lv.venta.serviceImpl;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Service;
 
 import lv.venta.model.Grade;
 import lv.venta.repo.ICourseRepo;
@@ -11,6 +11,7 @@ import lv.venta.repo.IGradeRepo;
 import lv.venta.repo.IStudentRepo;
 import lv.venta.service.IGradeFilterService;
 
+@Service
 public class GradeFilterServiceImpl implements IGradeFilterService{
 
 	@Autowired
@@ -40,8 +41,6 @@ public class GradeFilterServiceImpl implements IGradeFilterService{
 
 	@Override
 	public float calculateAVGGradeInCourseId(int id) throws Exception {
-		/*@Query(nativeQuery = true, value = "SELECT SUM(price*quantity) FROM product_table;")
-	float calculateTotalValueFromRepoProducts();*/
 		
 		if(id<1) throw new Exception("Id should be positive");
 		if(!courseRepo.existsById(id)) throw new Exception("Course with id '"+id+"' doesn't exist");
