@@ -56,7 +56,7 @@ public class ProgInzSeminar2Application {
 				gradeRepo.save(new Grade(5, c1, s2)); //Liga 5 DataStr
 				gradeRepo.save(new Grade(9, c3, s2)); //Liga 9 ProgInz
 				gradeRepo.save(new Grade(8, c1, s3)); //Baiba 8 DataStr
-				gradeRepo.save(new Grade(8, c3, s3)); //Baiba 8 ProgInz
+				gradeRepo.save(new Grade(2, c3, s3)); //Baiba 2 ProgInz
 			}
 		};
 	}
