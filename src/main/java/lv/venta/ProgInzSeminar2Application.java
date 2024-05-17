@@ -45,10 +45,18 @@ public class ProgInzSeminar2Application {
 
 				Course c1 = new Course("Datu strukturas un algoritmi", 2, p1);
 				Course c2 = new Course("Datubazes", 2, p2);
-				Course c3 = new Course("Programmaturas inzenierija I", 4, p3);
+				Course c3 = new Course("Programmaturas inzenierija I", 4, p3, p1);
 				courseRepo.save(c1);
 				courseRepo.save(c2);
 				courseRepo.save(c3);
+				
+				p1.addCourse(c1);
+				p1.addCourse(c3);
+				profRepo.save(p1);
+				p2.addCourse(c2);
+				profRepo.save(p2);
+				p3.addCourse(c3);
+				profRepo.save(p3);
 
 				gradeRepo.save(new Grade(4, c1, s1)); //Janis 4 DataStr
 				gradeRepo.save(new Grade(7, c2, s1)); //Janis 7 DB

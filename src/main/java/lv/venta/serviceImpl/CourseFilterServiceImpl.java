@@ -35,7 +35,7 @@ public class CourseFilterServiceImpl implements ICourseFilterService{
 	public Course selectCourseByProfessorId(int id) throws Exception {
 		if(id<1) throw new Exception("Problems with input args");
 		if(!profRepo.existsById(id)) throw new Exception("Professor with id '"+id+"' doesn't exist");
-		Course result = courseRepo.findByProfessorIdp(id);
+		Course result = courseRepo.findByProfessorsIdp(id);
 		if(result==null) throw new Exception("There is no course linkage to this professor");
 		return result;
 	}

@@ -8,15 +8,21 @@
 			<td>Id</td>
 			<td>Title</td>
 			<td>CP</td>
-			<td>Name</td>
-			<td>Surname</td>
+			<td>Professor</td>
 		</tr>
 		<tr th:each="tempC : ${mydata}">
 			<td th:text="${tempC.getIdc()}" ></td>
 			<td th:text="${tempC.getTitle()}">   </td>
 			<td th:text="${tempC.getCreditpoints()}">   </td>
-			<td th:text="${tempC.getProfessor().getName()}">   </td>
-			<td th:text="${tempC.getProfessor().getSurname()}">   </td>
+			
+			<td>
+				<ul>
+				<li th:each="tempP: ${tempC.getProfessors()}">
+					<span th:text="${tempP.getName()}"></span>
+					<span th:text="${tempP.getSurname()}"></span>
+				</li>
+				</ul>
+			</td>
 		</tr>
 		
 	</table>
