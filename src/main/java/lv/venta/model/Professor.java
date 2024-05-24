@@ -22,24 +22,12 @@ import lombok.ToString;
 @ToString
 @Table(name = "ProfessorTable")
 @Entity
-public class Professor {
+public class Professor extends Person{
 	@Id
 	@Column(name="Idp")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
 	private int idp;
-	
-	@Column(name="Name")
-	@NotNull
-	@Size(min=3, max=50)
-	@Pattern(regexp = "[A-Za-z ]+", message = "Only letters and space")
-	private String name;
-	
-	@Column(name="Surname")
-	@NotNull
-	@Size(min=3, max=50)
-	@Pattern(regexp = "[A-Za-z ]+", message = "Only letters and space")
-	private String surname;
 	
 	@Column(name="Degree")
 	@NotNull
@@ -52,8 +40,7 @@ public class Professor {
 	
 	
 	public Professor(String name, String surname, String degree) {
-		setName(name);
-		setSurname(surname);
+		super(name, surname);
 		setDegree(degree);
 	}
 }
