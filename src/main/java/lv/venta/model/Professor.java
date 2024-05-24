@@ -23,14 +23,11 @@ import lombok.ToString;
 @Table(name = "ProfessorTable")
 @Entity
 public class Professor extends Person{
-	@Id
-	@Column(name="Idp")
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Setter(value = AccessLevel.NONE)
-	private int idp;
+	
+	// ID naak no Person klases
 	
 	@Column(name="Degree")
-	@NotNull
+//	@NotNull // janem nost prieksh single strategy
 	private String degree;
 	
 	@OneToOne(mappedBy = "professor") //Course klases mainiigaa nosaukums

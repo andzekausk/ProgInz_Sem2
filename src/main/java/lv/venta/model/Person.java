@@ -1,10 +1,18 @@
 package lv.venta.model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,8 +22,20 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-@MappedSuperclass //shii anotacija nozime, ka no sis klases nebus tabula, bet taas kolonas bus mantotas klases tabulaas
+@Table(name = "PersonTable")
+@Entity
+//@Inheritance(strategy = InheritanceType.JOINED) //kopiigaas lietas (idpe, name, surname)
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE) // viss vienaa tabulaa
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) // katrai klasei ir sava tabula
+
 public class Person {
+	
+	@Id
+	@Column(name="Idpe")
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Setter(value = AccessLevel.NONE)
+	private int idpe;
+	
 	@Column(name="Name")
 	@NotNull
 	@Size(min=3, max=50)

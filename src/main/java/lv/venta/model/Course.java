@@ -48,7 +48,7 @@ public class Course {
 	private int creditpoints;
 	
 	@OneToOne
-	@JoinColumn(name="Idp") //Professor klases kolonnas nosaukums
+	@JoinColumn(name="Idpe") //Professor klases kolonnas nosaukums //jamaina jo ID naak no Personas klases
 	private Professor professor;
 	
 	@OneToMany(mappedBy = "course")

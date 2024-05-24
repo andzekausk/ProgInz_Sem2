@@ -24,13 +24,9 @@ import lombok.ToString;
 @ToString
 @Table(name = "StudentTable")
 @Entity
-public class Student extends Person{
-	@Id
-	@Column(name="Ids")
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Setter(value = AccessLevel.NONE)
-	private int ids;
+public class Student extends Person{	
 	
+	// ID naak no Person klases
 	
 	@OneToMany(mappedBy = "student")
 	@ToString.Exclude

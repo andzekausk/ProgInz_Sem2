@@ -11,7 +11,7 @@ public interface IGradeRepo extends CrudRepository<Grade, Integer>{
 
 	ArrayList<Grade> findByGrvalueLessThan(int i);
 
-	ArrayList<Grade> findByStudentIds(int id);
+	ArrayList<Grade> findByStudentIdpe(int id);
 
 	@Query(nativeQuery = true, value = "SELECT avg(grvalue) FROM grade_table where idc=(?1);") //?1 nozime ka funkcijas pirmais arguments nonaak tajaa vietaa
 	float calculateAVGGradeInCourseId(int id);

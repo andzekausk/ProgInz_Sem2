@@ -39,7 +39,7 @@ public class Grade {
 	private Course course;
 	
 	@ManyToOne
-	@JoinColumn(name="Ids")
+	@JoinColumn(name="Idpe") //jamaina jo ID naak no Personas klases
 	private Student student;
 	
 	
